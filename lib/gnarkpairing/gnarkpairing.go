@@ -27,7 +27,7 @@ import (
 type Pairing[F emulated.FieldParams, G2El, GtEl any] struct {
 	p interface {
 		AssertIsOnG1(*recursion.G1Affine[F])
-		AssertMultiMillerLoopAndFinalExpIsOne([]*recursion.G1Affine[F], []*G2El, *GtEl)
+		AssertMultiMillerLoopAndFinalExpIsOne([]*recursion.G1Affine[F], []*G2El, *GtEl) error
 	}
 }
 
@@ -38,8 +38,7 @@ func (g Pairing[F, G2El, GtEl]) AssertIsOnG1(P *recursion.G1Affine[F]) {
 
 // PairingCheck asserts the Groth16 pairing identity holds.
 func (g Pairing[F, G2El, GtEl]) PairingCheck(P []*recursion.G1Affine[F], Q []*G2El, previous *GtEl) error {
-	g.p.AssertMultiMillerLoopAndFinalExpIsOne(P, Q, previous)
-	return nil
+	return g.p.AssertMultiMillerLoopAndFinalExpIsOne(P, Q, previous)
 }
 
 // NewPairing returns gnark's pairing over the curve G2El belongs to.
@@ -66,7 +65,7 @@ func NewPairing[F emulated.FieldParams, G2El, GtEl any](api frontend.API) (recur
 	}
 	return Pairing[F, G2El, GtEl]{p: p.(interface {
 		AssertIsOnG1(*recursion.G1Affine[F])
-		AssertMultiMillerLoopAndFinalExpIsOne([]*recursion.G1Affine[F], []*G2El, *GtEl)
+		AssertMultiMillerLoopAndFinalExpIsOne([]*recursion.G1Affine[F], []*G2El, *GtEl) error
 	})}, nil
 }
 

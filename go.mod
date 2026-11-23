@@ -3,8 +3,8 @@ module github.com/mistcash/polyring
 go 1.26.8
 
 require (
-	github.com/consensys/gnark v0.16.4
-	github.com/consensys/gnark-crypto v0.22.1-0.20261009142911-8911ee45d22b
+	github.com/consensys/gnark v0.16.5
+	github.com/consensys/gnark-crypto v0.22.1-0.20261109214502-1b28c4e97311
 	github.com/ethereum/go-ethereum v1.17.5
 	github.com/stretchr/testify v1.12.1
 	golang.org/x/crypto v0.57.0
@@ -112,5 +112,3 @@ require (
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
-
-replace github.com/consensys/gnark v0.16.4 => github.com/mistcash/tiny-gnark v0.0.0-20261018205550-0a3abd2ee477
