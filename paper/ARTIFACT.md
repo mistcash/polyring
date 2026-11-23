@@ -16,7 +16,7 @@ fork is frozen so the published numbers stay reproducible.
 | | [`ppprt`](https://github.com/mistcash/ppprt) | `polyring` (this repo) |
 |---|---|---|
 | Use it to | reproduce Table 7 as published | use and extend the technique |
-| gnark | fork, upstream merged to `c05c6a8` (3 Aug 2026) | v0.16.4 via pinned [`tiny-gnark`](https://github.com/mistcash/tiny-gnark) |
+| gnark | fork, upstream merged to `c05c6a8` (3 Aug 2026) | upstream v0.16.5, no fork (multi-pair check: [#1808](https://github.com/Consensys/gnark/pull/1808)) |
 | Sound | **no** ([why](#why-the-numbers-move)) | yes, unaudited |
 | Shape | inside gnark's `std/math/emulated` | standalone Go module |
 | Extras | — | recursive Groth16 verifier (BN254, BLS12-381 inner), multi-commitment Solidity verifier, on-chain test |
