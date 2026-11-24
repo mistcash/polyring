@@ -131,7 +131,7 @@ calldata := solidity.MarshalSolidity(proof.(*groth16bn254.Proof))
 - Go 1.26.8
 - `solc` on `PATH` only for `lib/solidity` on-chain tests (skipped without it)
 
-gnark comes via the `replace` in `go.mod` (pinned `mistcash/tiny-gnark` fork). No other setup.
+gnark is upstream v0.16.5, which has the multi-pair pairing check polyring needs ([Consensys/gnark#1808](https://github.com/Consensys/gnark/pull/1808)). No other setup.
 
 ## How it works
 
